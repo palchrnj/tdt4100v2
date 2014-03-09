@@ -1,0 +1,45 @@
+test encapsulation.MobileUsage
+
+instance MobileUsage mobileUsage = new MobileUsage()
+	
+sequence call {
+	
+	--
+	mobileUsage.registerCall(5), mobileUsage.registerCall(10), mobileUsage.registerCall(15)
+	-->
+	state {
+		mobileUsage.getCallCount() == 3
+		mobileUsage.getCallSeconds() == 30
+	}
+}
+
+sequence message {
+	--
+	registerMessage(), registerMessage(), registerMessage()
+	-->
+	state {
+		messageCount == 3
+	}
+}
+
+sequence bytes {
+	--
+	registerBytes(0, 1024), registerBytes(1024, 0), registerBytes(1024, 1024)
+	-->
+	state {
+		bytesReceived == 2048 
+		bytesSent == 2048 
+	}
+}
+
+sequence callInvalidInput {
+	--
+	registerCall(5),
+	registerCall(-5)
+	throws IllegalArgumentException
+	-->
+	state {
+		callCount == 1
+		callSeconds == 5
+	}
+}

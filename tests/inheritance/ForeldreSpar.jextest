@@ -1,0 +1,63 @@
+test inheritance.ForeldreSpar
+
+instance ForeldreSpar foreldreSpar = new ForeldreSpar("Peder Aas", 0.04, 3)
+
+sequence withdraw {
+	--
+	foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(-1000.0) throws IllegalArgumentException
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(10000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getBalance() == 9000.0
+	}
+	--
+	foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getBalance() == 7000.0
+	}
+	--
+	foreldreSpar.endYearUpdate(), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getBalance() == 7000.0 * (1 + 0.04) - 1000.0
+	}
+}
+
+sequence getRemainingWithdrawals {
+	--
+	foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 2
+	}
+	--
+	foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 0
+	}
+	--
+	foreldreSpar.withdraw(1000.0) throws IllegalStateException
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 0
+	}
+	--
+	foreldreSpar.endYearUpdate()
+	-->
+	state {
+		foreldreSpar.getRemainingWithdrawals() == 3
+	}
+}

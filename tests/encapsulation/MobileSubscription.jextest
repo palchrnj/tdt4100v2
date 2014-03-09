@@ -1,0 +1,32 @@
+test encapsulation.MobileSubscription
+
+instance MobileSubscription mobileUsage = new MobileSubscription()
+
+//sequence call {
+//	--
+//	registerCall(5), registerCall(10), registerCall(15)
+//	-->
+//	state {
+//		getCallCount() == 3
+//		getCallSeconds() == 30
+//	}
+//}
+//
+//sequence message {
+//	--
+//	registerMessage(), registerMessage(), registerMessage()
+//	-->
+//	state {
+//		getMessageCount() == 3
+//	}
+//}
+//
+//sequence bytes {
+//	--
+//	registerBytes(0, 1024), registerBytes(1024, 0), registerBytes(1024, 1024), registerBytes(-1024, -1024) 
+//	-->
+//	state {
+//		getBytesReceived() == 2048 
+//		getBytesSent() == 2048 
+//	}
+//}

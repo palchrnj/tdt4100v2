@@ -52,3 +52,8 @@ sequence endYearUpdate{
 		savingsAccount.getBalance() == 100.0 * (1 + 0.10)
 	}
 }
+
+method boolean ==(double n1, double n2) {
+	val epsilon = 0.0000001 // avrundingsfeil
+	n1 - epsilon <= n2 && n1 + epsilon >= n2
+}

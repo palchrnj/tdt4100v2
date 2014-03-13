@@ -2,12 +2,10 @@ package inheritance;
 
 public class SavingsAccount implements Account{
 	
-	protected String name;
 	protected double balance;
 	protected double interest;
 	
-	public SavingsAccount(String name, double interest) {
-		this.name = name;
+	public SavingsAccount(double interest) {
 		this.balance = 0;
 		this.interest = interest;
 	}
@@ -33,15 +31,7 @@ public class SavingsAccount implements Account{
 	public double getBalance() {
 		return balance;
 	}
-	
-	public double getInterest() {
-		return interest;
-	}
-	
-	public void setInterest(double interest) {
-		this.interest = interest;
-	}
-	
+		
 	public void endYearUpdate() {
 		balance *= (1+interest);
 	}

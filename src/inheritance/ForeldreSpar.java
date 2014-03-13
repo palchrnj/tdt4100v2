@@ -5,8 +5,8 @@ public class ForeldreSpar extends SavingsAccount {
 	protected int withdrawCount;
 	protected int withdrawLimit;
 	
-	public ForeldreSpar(String name, double interest, int withdrawLimit) {
-		super(name, interest);
+	public ForeldreSpar(double interest, int withdrawLimit) {
+		super(interest);
 		withdrawCount = 0;
 		this.withdrawLimit = withdrawLimit;
 	}

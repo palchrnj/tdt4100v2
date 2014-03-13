@@ -10,7 +10,7 @@ public class BSUTest extends TestCase {
   private BSU bsu;
   
   private BSU _init_bsu() {
-    BSU _bSU = new BSU("Kari Nordmann", 0.05, 25000.0);
+    BSU _bSU = new BSU(0.05, 25000.0);
     return _bSU;
   }
   
@@ -20,7 +20,7 @@ public class BSUTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BSU(String,double,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(10000.0)</li>\n\t\t<li>bsu.deposit(-10000.0)</li>\n\t\t<li>bsu.deposit(20000.0)</li>\n\t\t<li>bsu.endYearUpdate(), bsu.deposit(20000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "BSU(double,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(10000.0)</li>\n\t\t<li>bsu.deposit(-10000.0)</li>\n\t\t<li>bsu.deposit(20000.0)</li>\n\t\t<li>bsu.endYearUpdate(), bsu.deposit(20000.0)</li>\n\t\t</ul>\n")
   public void testDeposit() {
     _transition_exprAction__deposit_transitions0_actions0(bsu);
     _test__deposit_transitions0_effect_state(bsu);
@@ -44,7 +44,7 @@ public class BSUTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BSU(String,double,double);void deposit(double);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(20000.0), bsu.withdraw(5000.0)</li>\n\t\t<li>bsu.withdraw(-10000.0)</li>\n\t\t<li>bsu.withdraw(20000.0)</li>\n\t\t<li>bsu.endYearUpdate(), bsu.withdraw(10000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "BSU(double,double);void deposit(double);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(20000.0), bsu.withdraw(5000.0)</li>\n\t\t<li>bsu.withdraw(-10000.0)</li>\n\t\t<li>bsu.withdraw(20000.0)</li>\n\t\t<li>bsu.endYearUpdate(), bsu.withdraw(10000.0)</li>\n\t\t</ul>\n")
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(bsu);
     _transition_exprAction__withdraw_transitions0_actions1(bsu);
@@ -74,7 +74,7 @@ public class BSUTest extends TestCase {
     
   }
   
-  @JExercise(tests = "BSU(String,double,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(20000.0)</li>\n\t\t<li>bsu.endYearUpdate, bsu.deposit(10000.0)</li>\n\t\t<li>bsu.endYearUpdate</li>\n\t\t</ul>\n")
+  @JExercise(tests = "BSU(double,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>bsu.deposit(20000.0)</li>\n\t\t<li>bsu.endYearUpdate, bsu.deposit(10000.0)</li>\n\t\t<li>bsu.endYearUpdate</li>\n\t\t</ul>\n")
   public void testGetTaxDeduction() {
     _transition_exprAction__getTaxDeduction_transitions0_actions0(bsu);
     _test__getTaxDeduction_transitions0_effect_state(bsu);

@@ -1,6 +1,6 @@
 test inheritance.ForeldreSpar
 
-instance ForeldreSpar foreldreSpar = new ForeldreSpar("Peder Aas", 0.04, 3)
+instance ForeldreSpar foreldreSpar = new ForeldreSpar(0.04, 3)
 
 sequence withdraw {
 	--

@@ -5,8 +5,8 @@ public class BSU extends SavingsAccount {
 	protected double availableBalance;
 	protected double depositLimit;
 	
-	public BSU(String name, double interest, double depositLimit) {
-		super(name, interest);
+	public BSU(double interest, double depositLimit) {
+		super(interest);
 		availableBalance = 0;
 		this.depositLimit = depositLimit;
 	}

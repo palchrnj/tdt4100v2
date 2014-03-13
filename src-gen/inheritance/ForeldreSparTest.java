@@ -10,7 +10,7 @@ public class ForeldreSparTest extends TestCase {
   private ForeldreSpar foreldreSpar;
   
   private ForeldreSpar _init_foreldreSpar() {
-    ForeldreSpar _foreldreSpar = new ForeldreSpar("Peder Aas", 0.04, 3);
+    ForeldreSpar _foreldreSpar = new ForeldreSpar(0.04, 3);
     return _foreldreSpar;
   }
   
@@ -20,7 +20,7 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  @JExercise(tests = "ForeldreSpar(String,double,int);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(-1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(10000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.endYearUpdate(), foreldreSpar.withdraw(1000.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "ForeldreSpar(double,int);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(-1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(10000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.endYearUpdate(), foreldreSpar.withdraw(1000.0)</li>\n\t\t</ul>\n")
   public void testWithdraw() {
     _transition_exprAction__withdraw_transitions0_actions0(foreldreSpar);
     _transition_exprAction__withdraw_transitions0_actions1(foreldreSpar);
@@ -54,7 +54,7 @@ public class ForeldreSparTest extends TestCase {
     
   }
   
-  @JExercise(tests = "ForeldreSpar(String,double,int);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.endYearUpdate()</li>\n\t\t</ul>\n")
+  @JExercise(tests = "ForeldreSpar(double,int);void withdraw(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>foreldreSpar.deposit(10000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0), foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.withdraw(1000.0)</li>\n\t\t<li>foreldreSpar.endYearUpdate()</li>\n\t\t</ul>\n")
   public void testGetRemainingWithdrawals() {
     _transition_exprAction__getRemainingWithdrawals_transitions0_actions0(foreldreSpar);
     _transition_exprAction__getRemainingWithdrawals_transitions0_actions1(foreldreSpar);

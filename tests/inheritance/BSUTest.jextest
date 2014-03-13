@@ -1,6 +1,6 @@
 test inheritance.BSU
 
-instance BSU bsu = new BSU("Kari Nordmann", 0.05, 25000.0)
+instance BSU bsu = new BSU(0.05, 25000.0)
 
 sequence deposit {
 	

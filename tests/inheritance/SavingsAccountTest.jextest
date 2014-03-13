@@ -1,15 +1,14 @@
 test inheritance.SavingsAccount
 
-instance SavingsAccount savingsAccount = new SavingsAccount("Ola Nordmann", 0.10)
+instance SavingsAccount savingsAccount = new SavingsAccount(0.10)
 	
-sequence balanceInterestFields {
+sequence balanceField {
 	
 	--
 	savingsAccount.deposit(100.0)
 	-->
 	state {
 		savingsAccount.getBalance() == 100.0
-		savingsAccount.getInterest() == 0.10
 	}
 }
 

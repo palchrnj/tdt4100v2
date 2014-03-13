@@ -10,7 +10,7 @@ public class SavingsAccountTest extends TestCase {
   private SavingsAccount savingsAccount;
   
   private SavingsAccount _init_savingsAccount() {
-    SavingsAccount _savingsAccount = new SavingsAccount("Ola Nordmann", 0.10);
+    SavingsAccount _savingsAccount = new SavingsAccount(0.10);
     return _savingsAccount;
   }
   
@@ -20,14 +20,14 @@ public class SavingsAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "SavingsAccount(String,double);void deposit(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0)</li>\n\t\t</ul>\n")
-  public void testBalanceInterestFields() {
-    _transition_exprAction__balanceInterestFields_transitions0_actions0(savingsAccount);
-    _test__balanceInterestFields_transitions0_effect_state(savingsAccount);
+  @JExercise(tests = "SavingsAccount(double);void deposit(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0)</li>\n\t\t</ul>\n")
+  public void testBalanceField() {
+    _transition_exprAction__balanceField_transitions0_actions0(savingsAccount);
+    _test__balanceField_transitions0_effect_state(savingsAccount);
     
   }
   
-  @JExercise(tests = "SavingsAccount(String,double);void deposit(double);void withdraw(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0), savingsAccount.withdraw(40.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "SavingsAccount(double);void deposit(double);void withdraw(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0), savingsAccount.withdraw(40.0)</li>\n\t\t</ul>\n")
   public void testDepositAndWithdraw() {
     _transition_exprAction__depositAndWithdraw_transitions0_actions0(savingsAccount);
     _transition_exprAction__depositAndWithdraw_transitions0_actions1(savingsAccount);
@@ -35,7 +35,7 @@ public class SavingsAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "SavingsAccount(String,double);void deposit(double);void withdraw(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.deposit(-100.0)</li>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.withdraw(-100.0)</li>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.withdraw(40.0)</li>\n\t\t</ul>\n")
+  @JExercise(tests = "SavingsAccount(double);void deposit(double);void withdraw(double)", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.deposit(-100.0)</li>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.withdraw(-100.0)</li>\n\t\t<li>savingsAccount.deposit(10.0), savingsAccount.withdraw(40.0)</li>\n\t\t</ul>\n")
   public void testDepositAndWithdrawIllegalStateOrInput() {
     try {
       _transition_exprAction__depositAndWithdrawIllegalStateOrInput_transitions0_actions0(savingsAccount);
@@ -64,7 +64,7 @@ public class SavingsAccountTest extends TestCase {
     
   }
   
-  @JExercise(tests = "SavingsAccount(String,double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0), savingsAccount.endYearUpdate()</li>\n\t\t</ul>\n")
+  @JExercise(tests = "SavingsAccount(double);void deposit(double);void endYearUpdate()", description = "Tests \n\t\tthe following sequence:\n\t\t<ul>\n\t\t<li>savingsAccount.deposit(100.0), savingsAccount.endYearUpdate()</li>\n\t\t</ul>\n")
   public void testEndYearUpdate() {
     _transition_exprAction__endYearUpdate_transitions0_actions0(savingsAccount);
     _transition_exprAction__endYearUpdate_transitions0_actions1(savingsAccount);
@@ -72,7 +72,7 @@ public class SavingsAccountTest extends TestCase {
     
   }
   
-  private void _transition_exprAction__balanceInterestFields_transitions0_actions0(final SavingsAccount it) {
+  private void _transition_exprAction__balanceField_transitions0_actions0(final SavingsAccount it) {
     try {
       
       this.savingsAccount.deposit(100.0);
@@ -82,18 +82,15 @@ public class SavingsAccountTest extends TestCase {
     
   }
   
-  private void _test__balanceInterestFields_transitions0_effect_state(final SavingsAccount it) {
-    _test__balanceInterestFields_transitions0_effect_state_objectTests0_test(savingsAccount);
+  private void _test__balanceField_transitions0_effect_state(final SavingsAccount it) {
+    _test__balanceField_transitions0_effect_state_objectTests0_test(savingsAccount);
     
   }
   
-  private void _test__balanceInterestFields_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
+  private void _test__balanceField_transitions0_effect_state_objectTests0_test(final SavingsAccount it) {
     
     double _balance = this.savingsAccount.getBalance();
     assertEquals("savingsAccount.getBalance() == 100.0 failed after savingsAccount.deposit(100.0)", 100.0, _balance);
-    
-    double _interest = this.savingsAccount.getInterest();
-    assertEquals("savingsAccount.getInterest() == 0.10 failed after savingsAccount.deposit(100.0)", 0.10, _interest);
     
   }
   
